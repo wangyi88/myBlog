@@ -5,6 +5,8 @@ from .models import Articles
 class ArticlesAdmin(admin.ModelAdmin):
     # 表头
     list_display = ("title","author","img","abstract","created_at")
+    # 搜索
+    search_fields = ("title","author","abstract","content")
+    list_filter = list_display
 
-
-admin.site.register(Articles,ArticlesAdmin)
+admin.site.register(Articles)

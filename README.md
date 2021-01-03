@@ -42,7 +42,7 @@ Snippets ,vscode-icons, live serve这些文件
 
 
 
-***三.创建myBlog项目***
+***三.创建myBlog虚拟环境***
 
 1.空文件夹下，执行`django-admin startproject myBlog;`
 
@@ -50,6 +50,109 @@ Snippets ,vscode-icons, live serve这些文件
 
 3.进入到虚拟环境，windows下：`.\\env\\Scrtipst\\activate`
 
-4.推出虚拟环境，windows下：'deactivate':
+4.退出虚拟环境，windows下：'deactivate’：exit
+
+5.创建app：`python manage.py startapp (app名字)`
+
+***四.代码并执行***`
+
+1.models.py:
+
+`from django.db import models`
+
+`from django.contrib.auth.models import User`
+
+
+
+`\# Create your models here.`
+
+`class Articles(models.Model):`
+
+​    `title=models.CharField(max_length=128,verbose_name="文章标题")`
+
+​    `author=models.ForeignKey(User,on_delete=models.CASCADE,verbose_name="作者")`
+
+​    `img = models.ImageField(upload_to="",blank=True,null=True,verbose_name="文章配图")`
+
+​    `abstract=models.TextField(verbose_name="文章摘要")`
+
+​    `content = models.TextField(verbose_name="文章内容")`
+
+​    `visited = models.IntegerField(default=0, verbose_name="文章访问量")`
+
+​    `created_at = models.DateTimeField(auto_now_add=True,verbose_name="创建时间")`
+
+​    `modified_at = models.DateTimeField(auto_now=True,verbose_name="修改时间")`
+
+
+
+
+
+​        `verbose_name="文章"`
+
+​        `verbose_name_plural = verbose_name`
+
+​        `ordering = ('created_at',)`
+
+​    `def __str__(self):`
+
+​        `return self.title`
+
+2.项目myBlog中的settings.py配置：
+
+`INSTALLED_APPS = [`
+
+​    `'django.contrib.admin',`
+
+​    `'django.contrib.auth',`
+
+​    `'django.contrib.contenttypes',`
+
+​    `'django.contrib.sessions',`
+
+​    `'django.contrib.messages',`
+
+​    `'django.contrib.staticfiles',`
+
+​    `'articles',`
+
+   `'cousers',`
+
+​    `'users',`
+
+`]`
+
+3.迁移数据库：python manage.py makemigrations
+
+4.执行迁移文件：`python manage.py migrate`
+
+5.admin.py:
+
+`from django.contrib import admin`
+
+`from .models import Articles`
+
+`\# Register your models here.`
+
+
+
+`class ArticlesAdmin(admin.ModelAdmin):`
+
+​    `\# 表头`
+
+​    `list_display = ("title","author","img","abstract","created_at")`
+
+​    `\# 搜索`
+
+​    `search_fields = ("title","author","abstract","content")`
+
+​    `list_filter = list_display`
+
+
+
+`admin.site.register(Articles)`
+
+6.执行命令：`python manage.py runserver`
+
 
 

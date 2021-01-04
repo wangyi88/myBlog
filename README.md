@@ -134,11 +134,7 @@ Snippets ,vscode-icons, live serve这些文件
 
 `\# Register your models here.`
 
-
-
 `class ArticlesAdmin(admin.ModelAdmin):`
-
-​    `\# 表头`
 
 ​    `list_display = ("title","author","img","abstract","created_at")`
 
@@ -155,4 +151,20 @@ Snippets ,vscode-icons, live serve这些文件
 6.执行命令：`python manage.py runserver`
 
 
+
+
+
+***五 业务逻辑***
+
+1.文章列表页，分页
+
+2.文章详情页，平乱
+
+3.全局搜索功能
+
+4.最新文章，最新评论排行
+
+5.按照分类，标签是一个据类操作
+
+6.联系我页面，发送邮件
 

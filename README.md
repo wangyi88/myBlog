@@ -154,6 +154,7 @@ Snippets ,vscode-icons, live serve这些文件
 
 
 
+
 ***五 业务逻辑***
 
 1.文章列表页，分页
@@ -168,3 +169,8 @@ Snippets ,vscode-icons, live serve这些文件
 
 6.联系我页面，发送邮件
 
+## 六。将所有app归拢到apps文件夹下
+
+
+## 七、评论和集成markdownfy插件
+django-cont
